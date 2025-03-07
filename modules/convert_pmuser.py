@@ -272,6 +272,13 @@ variable "pmuser_variables" {
             
         print(f"Updated {output_rules_file_path} with dynamic blocks for PMUSER variables")
 
+    def move_rules_tf(self, input_dir, output_dir):
+        input_rules_file_path = os.path.join(input_dir, self.rules_file)
+        output_rules_file_path = os.path.join(output_dir, self.rules_file)
+
+        # Copy the file
+        shutil.copy(input_rules_file_path, output_rules_file_path)
+
 
 def pmuser_to_dynamic(input_dir, output_dir: List[str] = None):
     
@@ -287,6 +294,7 @@ def pmuser_to_dynamic(input_dir, output_dir: List[str] = None):
         converter.update_tfvars(output_dir)
         converter.replace_variable_blocks(input_dir, output_dir)
     else:
+        converter.move_rules_tf(input_dir, output_dir)
         print("No PMUSER variables were extracted. Check if the file structure matches the expected format.")
 
 

@@ -29,7 +29,6 @@ class TerraformProjectRestructure:
             versions_tf_path = os.path.join(self.input_dir, "versions.tf")
             with open(versions_tf_path, 'w') as f:
                 f.write(terraform_block)
-                print(terraform_block)
             print(f"Created {versions_tf_path} with terraform block")
 
         # Extract the provider block

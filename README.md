@@ -21,6 +21,11 @@ Options:
   --help                 Show this message and exit.
 ```
 
+As an example here's the command executed for the project in the `test/export` directory:
+```
+$ python3 main.py optimize --input-dir "./test/export" -o "./test/result"   
+```
+
 ## Project Restructuring Details
 
 The [Akamai Terraform CLI](https://github.com/akamai/cli-terraform?tab=readme-ov-file#property-manager-properties) output results in the following structure:
